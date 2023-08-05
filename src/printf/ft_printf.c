@@ -6,13 +6,11 @@
 /*   By: rbasyrov <rbasyrov@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:31:09 by rbasyrov          #+#    #+#             */
-/*   Updated: 2023/08/02 14:05:44 by rbasyrov         ###   ########.fr       */
+/*   Updated: 2023/08/06 00:16:42 by rbasyrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "stdio.h"
-#include <limits.h>
+#include "libft.h"
 
 int	ft_distributor(va_list ap, char val)
 {

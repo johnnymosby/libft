@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_x.c                                      :+:      :+:    :+:   */
+/*   ft_print_xbig.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbasyrov <rbasyrov@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 19:02:17 by rbasyrov          #+#    #+#             */
-/*   Updated: 2023/08/02 14:05:43 by rbasyrov         ###   ########.fr       */
+/*   Updated: 2023/08/06 00:16:10 by rbasyrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf_x(va_list ap)
+int	ft_printf_xbig(va_list ap)
 {
 	long long int		nbr;
 	char				*base;
@@ -21,7 +21,7 @@ int	ft_printf_x(va_list ap)
 	int					j;
 
 	i = 0;
-	base = ft_strcreate("0123456789abcdef");
+	base = ft_strcreate("0123456789ABCDEF");
 	nbr = (unsigned int)va_arg(ap, int);
 	if (nbr == 0)
 		free(base);

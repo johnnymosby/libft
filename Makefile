@@ -15,7 +15,9 @@ STRING		=	ft_bzero.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.
 TYPE		=	 ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c
 
 GETLINE		=	get_next_line.c
-PRINTF		=	./src/printf/libftprintf.a
+PRINTF		=	ft_printf.c ft_printf_p.c ft_printf_x.c \
+				ft_printf_s.c  ft_print_xbig.c  ft_strcreate.c \
+				ft_printf_i.c  ft_printf_u.c
 
 CONVERSION	:=	$(addprefix conversion/, $(CONVERSION))
 IO			:=	$(addprefix io/, $(IO))
@@ -23,38 +25,34 @@ LISTS		:=	$(addprefix lists/, $(LISTS))
 MEMORY		:=	$(addprefix memory/, $(MEMORY))
 STRING		:=	$(addprefix string/, $(STRING))
 TYPE		:=	$(addprefix type/, $(TYPE))
+PRINTF		:=	$(addprefix printf/, $(PRINTF))
 
-SOURCE		=	$(CONVERSION) $(IO) $(LISTS) $(MEMORY) $(STRING) $(TYPE) $(GETLINE)
+SOURCE		=	$(CONVERSION) $(IO) $(LISTS) $(MEMORY) $(STRING) $(TYPE) $(GETLINE) $(PRINTF)
 
 SRC_DIR		=	./src/
 SRC			=	$(addprefix $(SRC_DIR), $(SOURCE))
 
 INC_DIR		=	./inc/
-INC			=	libft.h
+INC			=	libft.h ft_printf.h
 
 OBJ_DIR		=	./obj/
 OBJ			=	$(addprefix $(OBJ_DIR), $(SOURCE:.c=.o))
 
 all:	$(NAME)
 
-$(NAME): $(OBJ) $(PRINTF)
-		ar rc $(NAME) $(OBJ) $(PRINTF)
+$(NAME): $(OBJ)
+		ar rc $(NAME) $(OBJ)
 
 $(OBJ): $(SRC)
 			@mkdir -p $(@D)
 			$(CC) -c $< -o $@ -I $(INC_DIR)
 
-$(PRINTF):
-			make -C ./src/printf
-
 clean:
 			rm -rf $(OBJ_DIR)
 			rm -f libft.h.gch
-			make clean -C ./src/printf
 
 fclean: clean
 			rm -f $(NAME)
-			make fclean -C ./src/printf
 
 re: fclean all
 

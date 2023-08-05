@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_u.c                                      :+:      :+:    :+:   */
+/*   ft_printf_i.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbasyrov <rbasyrov@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 18:34:21 by rbasyrov          #+#    #+#             */
-/*   Updated: 2023/08/02 14:05:42 by rbasyrov         ###   ########.fr       */
+/*   Created: 2022/10/13 18:35:26 by rbasyrov          #+#    #+#             */
+/*   Updated: 2023/08/06 00:16:12 by rbasyrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_printf_u(va_list ap)
+int	ft_printf_i(va_list ap)
 {
-	int				i;
-	int				j;
-	unsigned int	nb;
-	char			*snb;
+	int		i;
+	int		j;
+	int		nb;
+	char	snb[16];
 
-	nb = va_arg(ap, unsigned int);
-	snb = malloc(10);
-	i = 0;
+	if (ap == NULL)
+		return (write(1, "(nil)", 5));
+	nb = va_arg(ap, int);
+	if (nb == -2147483648)
+		return (write(1, "-2147483648", 11));
+	i = 1;
+	j = nb < 0;
+	if (nb < 0)
+		nb *= write(1, "-", 1) * -1;
 	while (nb > 9)
 	{
 		snb[i] = '0' + nb % 10;
@@ -29,12 +35,8 @@ int	ft_printf_u(va_list ap)
 		i++;
 	}
 	snb[i] = '0' + nb;
-	j = i;
-	while (i > -1)
-	{
-		ft_putchar(snb[i]);
-		i--;
-	}
-	free(snb);
-	return (j + 1);
+	j += i;
+	while (--i > -1)
+		ft_putchar(snb[i + 1]);
+	return (j);
 }

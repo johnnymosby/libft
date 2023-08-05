@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_printf_s.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbasyrov <rbasyrov@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/13 18:24:59 by rbasyrov          #+#    #+#             */
-/*   Updated: 2023/08/02 14:05:46 by rbasyrov         ###   ########.fr       */
+/*   Created: 2022/10/13 18:37:41 by rbasyrov          #+#    #+#             */
+/*   Updated: 2023/08/06 00:16:17 by rbasyrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int	ft_putstr(char *str)
+int	ft_printf_s(va_list ap)
 {
-	int	i;
+	char	*s;
 
-	i = 0;
-	while (str[i])
-	{
-		write(1, str + i, 1);
-		i++;
-	}
-	return (i);
+	s = va_arg(ap, char *);
+	if (!s)
+		return (write(1, "(null)", 6));
+	return (ft_putstr(s));
 }

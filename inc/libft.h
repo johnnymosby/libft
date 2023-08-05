@@ -6,14 +6,24 @@
 /*   By: rbasyrov <rbasyrov@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 18:47:49 by rbasyrov          #+#    #+#             */
-/*   Updated: 2023/08/02 23:10:45 by rbasyrov         ###   ########.fr       */
+/*   Updated: 2023/08/06 00:19:20 by rbasyrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include "stdlib.h"
-# include "unistd.h"
+
+/*
+** ------------------------------- LIBRARIES ---------------------------------
+*/
+
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdarg.h>
+
+/*
+** ------------------------------- GETNEXTLINE MACROS ------------------------
+*/
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 256
@@ -115,5 +125,20 @@ int		ft_isprint(int c);
 */
 
 char	*get_next_line(int fd);
+
+/*
+** ------------------------------- PRINTF ------------------------------------
+*/
+
+char	*ft_strcreate(char *src);
+
+int		ft_printf(const char *fmt, ...);
+
+int		ft_printf_i(va_list ap);
+int		ft_printf_p(va_list ap);
+int		ft_printf_s(va_list ap);
+int		ft_printf_u(va_list ap);
+int		ft_printf_x(va_list ap);
+int		ft_printf_xbig(va_list ap);
 
 #endif
