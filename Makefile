@@ -4,7 +4,7 @@ CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
 
 CONVERSION	=	ft_atoi.c ft_itoa.c ft_tolower.c ft_toupper.c
-IO			=	ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c
+IO			=	ft_putchar.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c
 LISTS		=	ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c \
 				ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
 MEMORY		=	ft_calloc.c
@@ -43,7 +43,7 @@ all:	$(NAME)
 $(NAME): $(OBJ)
 		ar rc $(NAME) $(OBJ)
 
-$(OBJ): $(SRC)
+$(OBJ_DIR)%.o : $(SRC_DIR)%.c
 			@mkdir -p $(@D)
 			$(CC) -c $< -o $@ -I $(INC_DIR)
 

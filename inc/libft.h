@@ -6,7 +6,7 @@
 /*   By: rbasyrov <rbasyrov@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 18:47:49 by rbasyrov          #+#    #+#             */
-/*   Updated: 2023/08/06 00:19:20 by rbasyrov         ###   ########.fr       */
+/*   Updated: 2023/08/06 22:07:56 by rbasyrov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,12 @@ int		ft_toupper(int c);
 ** ------------------------------- INPUT / OUTPUT ----------------------------
 */
 
+int		ft_putchar(char c);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr_fd(char *s, int fd);
-
+int		ft_putstr(char *str);
 /*
 ** ------------------------------- LISTS -------------------------------------
 */
