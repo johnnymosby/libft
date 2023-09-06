@@ -45,7 +45,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_DIR)%.o : $(SRC_DIR)%.c
 			@mkdir -p $(@D)
-			$(CC) -c $< -o $@ -I $(INC_DIR)
+			$(CC) $(CFLAGS) -I $(INC_DIR) -c $< -o $@
 
 clean:
 			rm -rf $(OBJ_DIR)
